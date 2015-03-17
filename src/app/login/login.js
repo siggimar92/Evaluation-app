@@ -17,7 +17,7 @@ angular.module( 'ngBoilerplate.login', [
   });
 })
 
-.controller( 'LoginCtrl', function LoginCtrl( $scope, $http) {
+.controller( 'LoginCtrl', function LoginCtrl( $scope, $http, SERVER_URL) {
 
   console.log("inside LoginCtrl");
   $scope.username = "";
@@ -26,12 +26,20 @@ angular.module( 'ngBoilerplate.login', [
     console.log("button press");
 
     // Simple POST request example (passing data) :
-    $http.post('http://dispatch.ru.is/h37/api/v1/login', {user: $scope.username, pass: $scope.password}).
+    $http.post(SERVER_URL + 'login', {user: $scope.username, pass: $scope.password}).
       success(function (data, status, headers, config) {
-        console.log("success i like");
+        console.log("SUCCESS");
+        console.log("Data: " + data);
+        console.log("Status: " + status);
+        console.log("Headers: " + headers);
+        console.log("Config: " + config);
       }).
       error(function (data, status, headers, config) {
-        console.log("error... its not nice");
+        console.log("ERROR");
+        console.log("Data: " + data);
+        console.log("Status: " + status);
+        console.log("Headers: " + headers);
+        console.log("Config: " + config);
       });    
   };
 })

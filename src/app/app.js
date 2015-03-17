@@ -7,6 +7,8 @@ angular.module( 'ngBoilerplate', [
   'ui.router'
 ])
 
+.constant('SERVER_URL', 'http://dispatch.ru.is/h37/api/v1/')
+
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
   $urlRouterProvider.otherwise( '/login' );
 })
@@ -21,6 +23,7 @@ angular.module( 'ngBoilerplate', [
     }
   });
 })
+
 
 ;
 
