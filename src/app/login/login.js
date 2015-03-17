@@ -17,13 +17,28 @@ angular.module( 'ngBoilerplate.login', [
   });
 })
 
-.controller( 'LoginCtrl', function LoginCtrl( $scope ) {
-  // This is simple a demo for UI Boostrap.
-  $scope.dropdownDemoItems = [
-    "The first choice!",
-    "And another choice for you.",
-    "but wait! A third!"
-  ];
+.controller( 'LoginCtrl', function LoginCtrl( $scope, $http) {
+
+  console.log("inside LoginCtrl");
+  $scope.username = " ";
+  $scope.password = " ";
+  $scope.login = function(username, password) {
+    console.log("button press");
+
+    // Simple POST request example (passing data) :
+    $http.post('http://dispatch.ru.is/h37/api/v1/login', {user: $scope.username, pass: $scope.password}).
+      success(function (data, status, headers, config) {
+        console.log("success i like");
+      }).
+      error(function (data, status, headers, config) {
+        console.log("error... its not nice");
+      });    
+  };
+
+
+
+  //$http.post("http://dispatch.ru.is/h37/Help/Api/POST-api-v1-login").success(console.log("success bitch"));
+
 })
 
 ;
