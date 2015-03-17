@@ -20,8 +20,8 @@ angular.module( 'ngBoilerplate.login', [
 .controller( 'LoginCtrl', function LoginCtrl( $scope, $http) {
 
   console.log("inside LoginCtrl");
-  $scope.username = " ";
-  $scope.password = " ";
+  $scope.username = "";
+  $scope.password = "";
   $scope.login = function(username, password) {
     console.log("button press");
 
@@ -34,11 +34,6 @@ angular.module( 'ngBoilerplate.login', [
         console.log("error... its not nice");
       });    
   };
-
-
-
-  //$http.post("http://dispatch.ru.is/h37/Help/Api/POST-api-v1-login").success(console.log("success bitch"));
-
 })
 
 ;
