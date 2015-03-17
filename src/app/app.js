@@ -1,29 +1,28 @@
-angular.module( 'ngBoilerplate', [
-  'templates-app',
+var evalApp = angular.module( 'evalApp', 
+[ 'templates-app',
   'templates-common',
-  'ngBoilerplate.home',
-  'ngBoilerplate.about',
-  'ngBoilerplate.login',
+  'evalApp.home',
+  'evalApp.about',
+  'evalApp.login',
   'ui.router'
-])
+]);
 
-.constant('SERVER_URL', 'http://dispatch.ru.is/h37/api/v1/')
+evalApp.constant('SERVER_URL', 'http://dispatch.ru.is/h37/api/v1/');
 
-.config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
+evalApp.config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
   $urlRouterProvider.otherwise( '/login' );
-})
+});
 
-.run( function run () {
-})
+evalApp.run( function run () {
+});
 
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {
+evalApp.controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
     if ( angular.isDefined( toState.data.pageTitle ) ) {
-      $scope.pageTitle = toState.data.pageTitle + ' | ngBoilerplate' ;
+      $scope.pageTitle = toState.data.pageTitle + ' | Evaluation App' ;
     }
   });
-})
+});
 
 
-;
 
