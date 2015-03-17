@@ -4,6 +4,7 @@ var evalApp = angular.module( 'evalApp',
   'evalApp.home',
   'evalApp.about',
   'evalApp.login',
+  'evalApp.admin',
   'ui.router'
 ]);
 
