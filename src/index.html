@@ -53,10 +53,24 @@
 
         <div class="collapse navbar-collapse" collapse="menuCollapsed">
           <ul class="nav navbar-nav pull-left">
-            <li ui-sref-active="active">
-              <a href ui-sref="home">
+            <li ui-sref-active="active" class="">
+              <a href="#/home" ui-sref="home">
                 <i class="fa fa-home"></i>
                 Home
+              </a>
+            </li>
+            <li ui-sref-active="active" class="">
+              <a href="#/home" ui-sref="home">
+                <i class="fa fa-edit"></i>
+                Evaluate
+              </a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav pull-right admin-settings">
+            <li ui-sref-active="active" class="">
+              <a href="#/home" ui-sref="home">
+                <i class="fa fa-cog"></i>
+                Admin Settings
               </a>
             </li>
           </ul>
