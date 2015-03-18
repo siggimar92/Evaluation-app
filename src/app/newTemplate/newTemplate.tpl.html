@@ -13,24 +13,47 @@
 		  <input type="IntroTextEN" class="form-control" id="IntroTextEN" placeholder="Introduction text">
 		</div>
 	</form>
+</div>
 
-	<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pull-left">
+<div class="container">
+	<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pull-left jumbotron">
 <!-- 		<ul>
 			<li ng-repeat="t in templates">ID: {{t.ID}} | Title: {{t.Title}} </li>
 		</ul> -->
 	</div>
-	<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pull-right">
+	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pull-right jumbotron">
 		<h3>Add a Question:</h3>
 		<form>
+			<label>Question type: </label>
+			<br>
 			<select class="dropdown-select">
 				<option value="text">Text</option>
 				<option value="single">Single choice</option>
 				<option value="multible">Multiple choice</option>
 			</select>
+			<br>
+			<label>Teacher / Course question: </label>
+			<br>
 			<select class="dropdown-select">
 				<option value="teacherQuestion">Teacher Question</option>
 				<option value="courseQuestion">Course Question</option>
 			</select>
+			<br>
+			<label>Number of answers: </label>
+			<br>
+			<select class="dropdown-select">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-right">
+		  		<input type="spurning" class="form-control" id="spurning" placeholder="Spurning">
+			</div>
+			<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-right">
+			  <input type="question" class="form-control" id="question" placeholder="Question (EN)">
+			</div>
 		</form>
 	</div>
 </div>
