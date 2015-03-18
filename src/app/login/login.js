@@ -23,7 +23,11 @@ evalApp.controller( 'LoginCtrl', function LoginCtrl( $scope, $http, LoginResourc
   console.log("inside LoginCtrl");
   $scope.username = "";
   $scope.password = "";
-  
+  $scope.errorMessage = "";
+
+  // $scope.fullName = "";
+  // $scope.profileImg = "";
+
   // $scope.data = {};
   // $scope.status = {};
 
@@ -42,6 +46,10 @@ evalApp.controller( 'LoginCtrl', function LoginCtrl( $scope, $http, LoginResourc
         console.log($http.defaults.headers.common.Authorization);
         // console.log(data);
         // console.log(data.User.Role);
+
+        // $scope.fullName = data.User.FullName;
+        // $scope.profileImg = data.User.ImageURL;
+
         if(data.User.Role === "admin") {
           $location.path('/admin');
         } else {
@@ -49,15 +57,16 @@ evalApp.controller( 'LoginCtrl', function LoginCtrl( $scope, $http, LoginResourc
         }
       })
       .error(function (data, status, headers, config) {
+        $scope.errorMessage = 'This is not a valid username';
+        /* no need to check for passw as all passw work on this server.... */
         console.log("ERROR");
-        console.log(status);
-        console.table(data);
+        //console.log(status);
+        //console.table(data);
       });    
   };
 });
 
 evalApp.factory('LoginResource', function ( $http, SERVER_URL) {
-  
   return {
     doLogin: function (username, password) {
       return $http.post(SERVER_URL + 'login', {user: username, pass: password});

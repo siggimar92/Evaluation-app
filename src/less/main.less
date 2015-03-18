@@ -59,9 +59,22 @@ pre {
 
 h2 {
   margin: 20px 0;
-  color: #666;
+  color: #000;
 }
 
+body {
+  background-image: url('http://i.imgur.com/KAjH7Vt.jpg');
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.jumbotron {
+  background-color: rgba(230, 230, 230, 0.9);
+}
 
 /**
  * Navigation
@@ -70,24 +83,31 @@ h2 {
 .navbar {
   border-radius: 0;
   background-color: rgba(0, 0, 0, 0.8);
+  padding-bottom: 20px;
   
   small {
     font-size: 60%;
   }
 }
 
-
 .login-window {
-  padding-top: 80px;
+  padding-top: 200px;
 }
 
+.courses-user {
+  list-style: none;
+  font-size: 12pt;
+  text-align: left;
+}
 
-/**
- * Now that all app-wide styles have been applied, we can load the styles for
- * all the submodules and components we are using. 
- *
- * TODO: In a later version of this boilerplate, I'd like to automate this.
- */
+.courses-user li {
+  padding: 20px 0;
+}
+
+.courses-user a {
+  text-decoration: none;
+}
+
 
 @import '../app/home/home.less';
 
