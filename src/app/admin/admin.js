@@ -22,6 +22,9 @@ evalApp.controller( 'AdminCtrl', function AdminCtrl( $scope, $http, SERVER_URL) 
 
   console.log("inside AdminCtrl");
   console.log($http.defaults.headers.common.Authorization);
+  var auth = $http.defaults.headers.common.Authorization;
+  $http.defaults.headers.common.Authorization = auth;
+  console.log("Auth: " + auth);
 
   $scope.templates = [];
 
@@ -29,9 +32,10 @@ evalApp.controller( 'AdminCtrl', function AdminCtrl( $scope, $http, SERVER_URL) 
   .success(function (data, status, headers, config) {
     console.log("SUCCESS");
     console.log(data);
-
+    $http.defaults.headers.common.Authorization = auth;
+    console.log("auth: " + auth);
     for (var i = 0; i < data.length; i++) {
-      console.log(data[i]);
+      // console.log(data[i]);
       $scope.templates[i] = data[i];
     }
   })
