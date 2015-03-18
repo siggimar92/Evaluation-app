@@ -40,10 +40,10 @@ evalApp.controller( 'UserCtrl', function UserCtrl( $scope, $http, SERVER_URL) {
     console.log("ERROR");
   });   
 
-$http.get(SERVER_URL + 'my/evaluations')
+$http.get(SERVER_URL + '/evaluations')
   .success(function (data, status, headers, config) {
     console.log("SUCCESS");
-    //console.log(data);
+    console.log(data);
 
     for (var i = 0; i < data.length; i++) {
       $scope.displayEvals[i] = data[i];
