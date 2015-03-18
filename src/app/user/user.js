@@ -22,7 +22,7 @@ evalApp.controller( 'UserCtrl', function UserCtrl( $scope, $http, SERVER_URL) {
   $scope.displayCourses = [];
   $scope.displayEvals = [];
   console.log("inside UserCtrl");
-  console.log($http.defaults.headers.common.Authorization);
+  
   // console.log($http.defaults.headers.common.Authorization);
   // console.log($http.get(SERVER_URL + 'my/courses'));
 

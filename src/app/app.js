@@ -6,6 +6,7 @@ var evalApp = angular.module( 'evalApp',
   'evalApp.login',
   'evalApp.admin',
   'evalApp.user',
+  'evalApp.newTemplate',
   'ui.router'
 ]);
 
@@ -26,5 +27,6 @@ evalApp.controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {
   });
 });
 
-
-
+evalApp.directive('evaluation-question', function() {
+  return ;
+});
