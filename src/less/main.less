@@ -62,8 +62,16 @@ h2 {
   color: #000;
 }
 
+h3 {
+  margin: 0 0 20px 0;
+}
+
 body {
-  background-image: url('http://i.imgur.com/KAjH7Vt.jpg'); 
+  background-image: url('http://i.imgur.com/KAjH7Vt.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+  padding-top: 80px;
 }
 
 .center-block {
@@ -74,6 +82,25 @@ body {
 
 .jumbotron {
   background-color: rgba(230, 230, 230, 0.9);
+}
+
+.container .jumbotron {
+  margin: 30px 0;
+}
+
+.my-button {
+  padding: 10px 20px;
+  color: #fff;
+  border: solid 1px;
+  border-radius: 5px;
+  border-color: #4cae4c;
+  background-color: #5cb85c;
+}
+
+.my-button:hover {
+  background-color: #449d44;
+  text-decoration: none;
+  color: #fff;
 }
 
 /**
@@ -115,7 +142,7 @@ body {
    height: 30px;
    padding: 5px;
    width: 250px;
-   margin-top: 20px;
+   margin-bottom: 20px;
 
 }
 

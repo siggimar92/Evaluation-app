@@ -43,6 +43,7 @@ evalApp.controller( 'AdminCtrl', function AdminCtrl( $scope, $http, SERVER_URL, 
   })
   .error(function (data, status, headers, config) {
     console.log("ERROR");
+
     console.log(status);
     if (status === 401) {
       $location.path('/login');
