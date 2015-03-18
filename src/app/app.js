@@ -10,7 +10,7 @@ var evalApp = angular.module( 'evalApp',
   'ui.router'
 ]);
 
-evalApp.constant('SERVER_URL', 'http://dispatch.ru.is/h37/api/v1/');
+evalApp.constant('SERVER_URL', 'http://dispatch.ru.is/h48/api/v1/');
 
 evalApp.config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
   $urlRouterProvider.otherwise( '/login' );
