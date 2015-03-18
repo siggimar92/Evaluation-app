@@ -40,7 +40,13 @@ evalApp.controller( 'LoginCtrl', function LoginCtrl( $scope, $http, LoginResourc
 
         $http.defaults.headers.common.Authorization = "Basic " + data.Token;
         console.log($http.defaults.headers.common.Authorization);
-        $location.path('/about');
+        // console.log(data);
+        // console.log(data.User.Role);
+        if(data.User.Role === "admin") {
+          $location.path('/admin');
+        } else {
+          $location.path('/user');
+        }
       })
       .error(function (data, status, headers, config) {
         console.log("ERROR");

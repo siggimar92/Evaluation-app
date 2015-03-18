@@ -21,5 +21,6 @@ evalApp.config(function config( $stateProvider ) {
 evalApp.controller( 'UserCtrl', function UserCtrl( $scope, $http, SERVER_URL) {
 
   console.log("inside UserCtrl");
+  console.log($http.defaults.headers.common.Authorization);
 
 });
