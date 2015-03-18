@@ -31,7 +31,7 @@ evalApp.controller( 'UserCtrl', function UserCtrl( $scope, $http, SERVER_URL) {
 
     for (var i = 0; i < data.length; i++) {
       console.log(data[i].Name);
-      $scope.displayCourses[i] = data[i].Name;
+      $scope.displayCourses[i] = data[i];
     }
 
   })
