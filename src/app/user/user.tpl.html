@@ -1,17 +1,15 @@
-<div class="container">
-	<div class="jumbotron">
-		<div class="pull-left col-lg-5 col-md-5 col-sm-12 col-xs-12">
-			<h3>My Courses</h3>
-			<ul class="courses-user">
-				<li ng-repeat="data in displayCourses"> <a href="{{data.CourseID}}">{{data.Name}}</a></li>
-			</ul>
-		</div>
-		<div class="pull-right col-lg-5 col-md-5 col-sm-12 col-xs-12">
-			<h3>My Evaluations</h3>
-			<ul class="evaluations-user">
-				<li ng-repeat="data in displayEvals"> <a href="{{data.CourseID}}">{{data.CourseName}}</a></li>
-			</ul>
-		</div>
+<div class="container jumbotron">
+	<div class="pull-left col-lg-5 col-md-5 col-sm-12 col-xs-12">
+		<h3>My Courses</h3>
+		<ul class="courses-user">
+			<li ng-repeat="data in displayCourses"> <a href="{{data.CourseID}}">{{data.Name}}</a></li>
+		</ul>
+	</div>
+	<div class="pull-right col-lg-5 col-md-5 col-sm-12 col-xs-12">
+		<h3>My Evaluations</h3>
+		<ul class="evaluations-user">
+			<li ng-repeat="data in displayEvals"> <a href="{{data.CourseID}}">{{data.CourseName}}</a></li>
+		</ul>
 	</div>
 </div>
 

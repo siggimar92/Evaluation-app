@@ -1,22 +1,36 @@
-<div class="container">
-
-	<form class="jumbotron">
+<div class="container jumbotron">
+	<form>
 		<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-left">
 		  <input type="title" class="form-control" id="title" placeholder="Titill">
 		</div>
 		<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right">
 		  <input type="titleEN" class="form-control" id="titleEN" placeholder="Title (EN)">
 		</div>
+		<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-left">
+		  <input type="IntroText" class="form-control" id="IntroText" placeholder="Lysing kennslumats">
+		</div>
+		<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right">
+		  <input type="IntroTextEN" class="form-control" id="IntroTextEN" placeholder="Introduction text">
+		</div>
 	</form>
 
-	<div class="jumbotron col-lg-7 col-md-7 col-sm-12 col-xs-12 pull-left">
+	<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pull-left">
 <!-- 		<ul>
 			<li ng-repeat="t in templates">ID: {{t.ID}} | Title: {{t.Title}} </li>
 		</ul> -->
 	</div>
-	<div class="jumbotron col-lg-4 col-md-4 col-sm-12 col-xs-12 pull-right">
+	<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pull-right">
+		<h3>Add a Question:</h3>
 		<form>
-			
+			<select class="dropdown-select">
+				<option value="text">Text</option>
+				<option value="single">Single choice</option>
+				<option value="multible">Multiple choice</option>
+			</select>
+			<select class="dropdown-select">
+				<option value="teacherQuestion">Teacher Question</option>
+				<option value="courseQuestion">Course Question</option>
+			</select>
 		</form>
 	</div>
 </div>
