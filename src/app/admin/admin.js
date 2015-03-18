@@ -18,7 +18,7 @@ evalApp.config(function config( $stateProvider ) {
   });
 });
 
-evalApp.controller( 'AdminCtrl', function AdminCtrl( $scope, $http, SERVER_URL) {
+evalApp.controller( 'AdminCtrl', function AdminCtrl( $scope, $http, SERVER_URL, $location) {
 
   console.log("inside AdminCtrl");
   console.log($http.defaults.headers.common.Authorization);
@@ -42,10 +42,10 @@ evalApp.controller( 'AdminCtrl', function AdminCtrl( $scope, $http, SERVER_URL) 
   .error(function (data, status, headers, config) {
     console.log("ERROR");
 
-    if(status === 401) {
+    console.log(status);
+    if (status === 401) {
       $location.path('/login');
     }
-
   });    
 
   // // $scope.getTemp = function()
