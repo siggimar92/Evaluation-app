@@ -23,25 +23,41 @@ evalApp.controller( 'AdminCtrl', function AdminCtrl( $scope, $http, SERVER_URL) 
   console.log("inside AdminCtrl");
   console.log($http.defaults.headers.common.Authorization);
 
-  // $scope.getTemp = function()
-  $http.get("http://dispatch.ru.is/h37/api/v1/evaluationtemplates")
-    .success (function(response) {
-      $scope.allTemplates = response;
+  $scope.templates = [];
 
-      console.log("allTemplates:");
-      console.log($scope.allTemplates);
+  $http.get(SERVER_URL + 'evaluationtemplates')
+  .success(function (data, status, headers, config) {
+    console.log("SUCCESS");
+    console.log(data);
 
-      $scope.tempTitles = [];
+    for (var i = 0; i < data.length; i++) {
+      console.log(data[i]);
+      $scope.templates[i] = data[i];
+    }
+  })
+  .error(function (data, status, headers, config) {
+    console.log("ERROR");
+  });    
 
-      console.log("titles:");
+  // // $scope.getTemp = function()
+  // $http.get("http://dispatch.ru.is/h37/api/v1/evaluationtemplates")
+  //   .success (function(response) {
+  //     $scope.allTemplates = response;
 
-      console.log(response[0].Title);
-      // for (var i = 0; i < response.size(); i++) {
-      //   //$scope.tempTitles.push(i.Title);
-      //   console.log(response[i].Title);
-      // }
+  //     console.log("allTemplates:");
+  //     console.log($scope.allTemplates);
 
-    });
+  //     $scope.tempTitles = [];
+
+  //     console.log("titles:");
+
+  //     console.log(response[0].Title);
+  //     // for (var i = 0; i < response.size(); i++) {
+  //     //   //$scope.tempTitles.push(i.Title);
+  //     //   console.log(response[i].Title);
+  //     // }
+
+  //   });
 
 
 });
