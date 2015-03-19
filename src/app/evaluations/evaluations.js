@@ -27,6 +27,7 @@ evalApp.controller( 'evaluationCtrl', function evaluationCtrl( $scope, $http, SE
   $scope.course = "T-427-WEPO";
   $scope.semester = "20151";
   $scope.courseQ = [];
+  $scope.teacherQ = [];
   $scope.ans = [];
 
    $http.get(SERVER_URL + 'courses/' + $scope.course + '/' + $scope.semester + '/evaluations/' + $scope.evalID)
@@ -36,6 +37,7 @@ evalApp.controller( 'evaluationCtrl', function evaluationCtrl( $scope, $http, SE
 
     $scope.display = data;
     $scope.courseQ = data.CourseQuestions;
+    $scope.teacherQ = data.TeacherQuestions;
     console.log($scope.courseQ);
     
     // for (var i = 0; i < data.CourseQuestions.length; i++) {

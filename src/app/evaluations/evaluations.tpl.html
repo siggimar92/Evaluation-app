@@ -10,13 +10,25 @@
 <!-- 		<p ng-repeat="x in courseQ">{{x.Text}} / {{x.TextEN}}</p>
 		<p ng-repeat="y in courseQ.Answers">{{y.Answers}}</p> -->
 		<div ng-repeat="x in courseQ">
+			<hr>
+			<p><strong>{{x.Text}} / {{x.TextEN}}</strong></p>
 			<div ng-repeat="y in x.Answers">
-				<p>{{y.Text}}</p>
+				<p>{{y.Text}} / {{y.TextEN}}</p>
+				<p>Weight: {{y.Weight}}</p>
 			</div>
 		</div>
 	</div>
 	<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pull-right">
 		<h3>Teacher Questions: </h3>
+
+		<div ng-repeat="x in teacherQ">
+			<hr>
+			<p><strong>{{x.Text}} / {{x.TextEN}}</strong></p>
+			<div ng-repeat="y in x.Answers">
+				<p>{{y.Text}} / {{y.TextEN}}</p>
+				<p>Weight: {{y.Weight}}</p>
+			</div>
+		</div>
 	</div>
 </div>
 
