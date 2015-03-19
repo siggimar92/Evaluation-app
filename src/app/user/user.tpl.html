@@ -10,21 +10,21 @@
 		<div class="table-responsive">
 			<table class="table table-hover my-table">
 				<thead class="table-head">
-			      <tr>
-			      	<th>ID</th>
-			        <th>Template title</th>
-			        <th>Template title (EN)</th>
-			        <th>Status</th>
-			      </tr>
-			      <tbody>
-			        <tr ng-repeat="data in displayEvals" class="active">
-			          <td>{{data.ID}}</td>
-			          <td><a ng-click="doEval(data.ID)">{{data.TemplateTitle}}</a></td>
-			          <td>{{data.TemplateTitleEN}}</td>
-			          <td class="status">({{data.Status}})</td>
+			        <tr>
+				      	<th>ID</th>
+				        <th>Template title</th>
+				        <th>Template title (EN)</th>
+				        <th>Status</th>
 			        </tr>
-			      </tbody>
 			    </thead>
+			    <tbody>
+			        <tr ng-repeat="data in displayEvals" class="active">
+			            <td>{{data.ID}}</td>
+			            <td><a ng-click="doEval(data.ID)">{{data.TemplateTitle}}</a></td>
+			            <td>{{data.TemplateTitleEN}}</td>
+			            <td class="status">({{data.Status}})</td>
+			        </tr>
+			    </tbody>
 			</table>
 		</div>
 

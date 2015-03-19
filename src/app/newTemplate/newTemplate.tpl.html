@@ -1,98 +1,27 @@
 <div class="container jumbotron">
 	<h3>Describe your evaluation</h3>
-	<form class="input-group">
-		<input type="text" class="form-control" ng-model="evalTitle" placeholder="Nafn kennslumats">
-		<input type="text" class="form-control" ng-model="evalTitleEN" placeholder="Title of evalutaion">
-		<input type="text" class="form-control" ng-model="evalIntro" placeholder="Inngangur">
-		<input type="text" class="form-control" ng-model="evalIntroEN" placeholder="Introduction">
-		<span class="input-group-btn">
-				<button class="btn btn-default" ng-click="logThis()">Prufa</button>
-		</span>
+	<button class="my-small-button-close pull-right">SUBMIT EVALUATION</button>
+	<form class="input-group col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+		<div class="form-group">
+			<input type="text" class="form-control" ng-model="evalTitle" placeholder="Nafn kennslumats">
+			<input type="text" class="form-control" ng-model="evalTitleEN" placeholder="Title of evalutaion">
+			<input type="text" class="form-control" ng-model="evalIntro" placeholder="Inngangur">
+			<input type="text" class="form-control" ng-model="evalIntroEN" placeholder="Introduction">
+		</div>
+<!-- 		<button class="btn btn-primary" ng-click="logThis()">Prufa</button>
+ -->		
 	</form>
 </div>
 
 <div class="container">
-	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-left jumbotron">
-		<div class="jumbotron">
-			<form class="input-group">
-				<h4>Add a course question</h4>
-				<input type="text" class="form-control" ng-model="cQText" placeholder="Spurning">
-				<input type="text" class="form-control" ng-model="cQTextEN" placeholder="Question">
-				<input type="text" class="form-control" ng-model="cQType" placeholder="Type">
-			</form>
-			<form class="input-group">
-				<h4>Add a answer for this question</h4>
-				<input type="text" class="form-control" ng-model="cAText" placeholder="Svar">
-				<input type="text" class="form-control" ng-model="cATextEN" placeholder="Answer">
-				<input type="number" class="form-control" ng-model="cAWeight" placeholder="Type">
-				<span class="input-group-btn">
-					<button class="btn btn-default" ng-click="addCAnswer()">Add answer</button>
-				</span>
-			</form>
-			<h5>Answers to this question</h5>
-			<table class="table">
-				<tr>
-					<td><strong>Text</strong></td>
-					<td><strong>Text (EN)</strong></td>
-					<td><strong>Weight</strong></td>
-				</tr>
-				<tr ng-repeat="a in CAns">
-					<td>{{a.Text}}</td>
-					<td>{{a.TextEN}}</td>
-					<td>{{a.Weight}}</td>
-				</tr>
-			</table>
-			<span class="input-group-btn">
-				<button class="btn btn-success" ng-click="addCQuestion()">Submit This question</button>
-			</span>
-		</div>
-	</div>
-
-	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right jumbotron">
-		<div class="jumbotron">
-			<form class="input-group">
-				<h4>Add a teacher question</h4>
-				<input type="text" class="form-control" ng-model="cQText" placeholder="Spurning">
-				<input type="text" class="form-control" ng-model="cQTextEN" placeholder="Question">
-				<input type="text" class="form-control" ng-model="cQType" placeholder="Type">
-			</form>
-			<form class="input-group">
-				<h4>Add a answer for this question</h4>
-				<input type="text" class="form-control" ng-model="cAText" placeholder="Svar">
-				<input type="text" class="form-control" ng-model="cATextEN" placeholder="Answer">
-				<input type="number" class="form-control" ng-model="cAWeight" placeholder="Type">
-				<span class="input-group-btn">
-					<button class="btn btn-default" ng-click="addCAnswer()">Add answer</button>
-				</span>
-			</form>
-			<h5>Answers to this question</h5>
-			<table class="table">
-				<tr>
-					<td><strong>Text</strong></td>
-					<td><strong>Text (EN)</strong></td>
-					<td><strong>Weight</strong></td>
-				</tr>
-				<tr ng-repeat="a in CAns">
-					<td>{{a.Text}}</td>
-					<td>{{a.TextEN}}</td>
-					<td>{{a.Weight}}</td>
-				</tr>
-			</table>
-			<span class="input-group-btn">
-				<button class="btn btn-success" ng-click="addCQuestion()">Submit This question</button>
-			</span>
-		</div>
-	</div>
-
-
-	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pull-left jumbotron">
+	<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pull-left jumbotron">
 		<h3>Course questions</h3>
 		<table class="table">
 			<tr>
-				<td><strong>Spurning</strong></td>
-				<td><strong>Question (EN)</strong></td>
-				<td><strong>Type</strong></td>
-				<td><strong># of ans</strong></td>
+				<td>Spurning</td>
+				<td>Question (EN)</td>
+				<td>Type</td>
+				<td># of ans</td>
 			</tr>
 			<tr ng-repeat="q in courseQ">
 				<td>{{q.Text}}</td>
@@ -103,14 +32,14 @@
 		</table>
 	</div>
 
-	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pull-right jumbotron">
+	<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pull-right jumbotron">
 		<h3>Teacher questions</h3>
 		<table class="table">
 			<tr>
-				<td><strong>Spurning</strong></td>
-				<td><strong>Question (EN)</strong></td>
-				<td><strong>Type</strong></td>
-				<td><strong># of ans</strong></td>
+				<td>Spurning</td>
+				<td>Question (EN)</td>
+				<td>Type</td>
+				<td># of ans</td>
 			</tr>
 			<tr ng-repeat="q in courseQ">
 				<td>{{q.Text}}</td>
@@ -120,12 +49,81 @@
 			</tr>
 		</table>
 	</div>
-
-	<button class="btn btn-danger">SUBMIT EVALUATION</button>
 </div>
 
+<div class="container jumbotron">
+	<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pull-left">
+		<form class="input-group">
+			<h4>Add a course question</h4>
+			<input type="text" class="form-control" ng-model="cQText" placeholder="Spurning">
+			<input type="text" class="form-control" ng-model="cQTextEN" placeholder="Question">
+			<input type="text" class="form-control" ng-model="cQType" placeholder="Type">
+		</form>
+		<form class="input-group">
+			<h4>Add a answer for this question</h4>
+			<input type="text" class="form-control" ng-model="cAText" placeholder="Svar">
+			<input type="text" class="form-control" ng-model="cATextEN" placeholder="Answer">
+			<input type="number" class="form-control" ng-model="cAWeight" placeholder="Type">
+			<button class="my-button-blue" ng-click="addCAnswer()">Add answer</button>
+		</form>
+		<h5>Answers to this question</h5>
+		<div class="table-responsive">
+			<table class="table table-hover my-table">
+				<thead>
+					<tr>
+						<th>Text</th>
+						<th>Text (EN)</th>
+						<th>Weight</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="a in CAns" class="active">
+						<td>{{a.Text}}</td>
+						<td>{{a.TextEN}}</td>
+						<td>{{a.Weight}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<button class="my-button" ng-click="addCQuestion()">Submit This question</button>
+	</div>
 
-
+	<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pull-right">
+		<form class="input-group">
+			<h4>Add a teacher question</h4>
+			<input type="text" class="form-control" ng-model="cQText" placeholder="Spurning">
+			<input type="text" class="form-control" ng-model="cQTextEN" placeholder="Question">
+			<input type="text" class="form-control" ng-model="cQType" placeholder="Type">
+		</form>
+		<form class="input-group">
+			<h4>Add a answer for this question</h4>
+			<input type="text" class="form-control" ng-model="cAText" placeholder="Svar">
+			<input type="text" class="form-control" ng-model="cATextEN" placeholder="Answer">
+			<input type="number" class="form-control" ng-model="cAWeight" placeholder="Type">
+			<button class="my-button-blue" ng-click="addCAnswer()">Add answer</button>
+		</form>
+		<h5>Answers to this question</h5>
+		<div class="table-responsive">
+			<table class="table table-hover my-table">
+				<thead>
+					<tr>
+						<th>Text</th>
+						<th>Text (EN)</th>
+						<th>Weight</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="a in CAns">
+						<td>{{a.Text}}</td>
+						<td>{{a.TextEN}}</td>
+						<td>{{a.Weight}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<button class="my-button" ng-click="addCQuestion()">Submit This question</button>
+	</div>
+</div>
 
 
 
