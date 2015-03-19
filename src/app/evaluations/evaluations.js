@@ -47,6 +47,14 @@ evalApp.controller( 'evaluationCtrl', function evaluationCtrl( $scope, $http, SE
   })
   .error(function (data, status, headers, config) {
     console.log("ERROR");
-  });  
+  });
+
+  $scope.isText = function (x) {
+    if (x === "text") {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
 });

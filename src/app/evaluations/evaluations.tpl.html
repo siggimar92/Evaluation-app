@@ -4,7 +4,7 @@
 		<p>{{display.IntroText}}</p>
 		<p class="english">{{display.IntroTextEN}}</p>
 	</div>
-
+	
 	<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pull-left">
 		<h3>Course Questions: </h3>
 <!-- 		<p ng-repeat="x in courseQ">{{x.Text}} / {{x.TextEN}}</p>
@@ -12,23 +12,71 @@
 		<div ng-repeat="x in courseQ">
 			<hr>
 			<p><strong>{{x.Text}} / {{x.TextEN}}</strong></p>
-			<div ng-repeat="y in x.Answers">
-				<p>{{y.Text}} / {{y.TextEN}}</p>
-				<p>Weight: {{y.Weight}}</p>
+
+			<div ng-if="{{x.Type}} == "text"">
+				<div ng-repeat="y in x.Answers">
+					{{y.Text}} / {{y.TextEN}}
+				</div>
+				<input type="text" class="form-control" id="text-answer" placeholder="Username" ng-model="text-answer" required autofocus>
+			</div>
+			<div ng-if="{{x.Type}} == "single"">
+				<div ng-repeat="y in x.Answers">
+					<div class="checkbox">
+					    <label>
+					      <input type="checkbox"> {{y.Text}} / {{y.TextEN}}
+					    </label>
+					  </div>
+				</div>
+			</div>
+			<div ng-if="{{x.Type}} == "multible"">
+				<div ng-repeat="y in x.Answers">
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+					    {{y.Text}} / {{y.TextEN}}
+					  </label>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
+
 	<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pull-right">
 		<h3>Teacher Questions: </h3>
 
-		<div ng-repeat="x in teacherQ">
+		<div ng-repeat="x in teacherQ">			
 			<hr>
 			<p><strong>{{x.Text}} / {{x.TextEN}}</strong></p>
-			<div ng-repeat="y in x.Answers">
-				<p>{{y.Text}} / {{y.TextEN}}</p>
-				<p>Weight: {{y.Weight}}</p>
+
+<!-- HAFFI!!!! KIKJA HER A NG-IF -->
+			<div ng-if="{{x.Type}} == "text"">
+				<div ng-repeat="y in x.Answers">
+					{{y.Text}} / {{y.TextEN}}
+				</div>
+				<input type="text" class="form-control" id="text-answer" placeholder="Username" ng-model="text-answer" required autofocus>
 			</div>
+			<div ng-if="{{x.Type}} == "single"">
+				<div ng-repeat="y in x.Answers">
+					<div class="checkbox">
+					    <label>
+					      <input type="checkbox"> {{y.Text}} / {{y.TextEN}}
+					    </label>
+					  </div>
+				</div>
+			</div>
+			<div ng-if="{{x.Type}} == "multible"">
+				<div ng-repeat="y in x.Answers">
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+					    {{y.Text}} / {{y.TextEN}}
+					  </label>
+					</div>
+				</div>
+			</div>
+<!--// HAFFI!!!! KIKJA HER A NG-IF //-->
 		</div>
 	</div>
+	<br>
+	<button class="my-button">Submit evaluation</button>
 </div>
-
