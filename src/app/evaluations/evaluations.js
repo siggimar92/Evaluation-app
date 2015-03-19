@@ -26,13 +26,22 @@ evalApp.controller( 'evaluationCtrl', function evaluationCtrl( $scope, $http, SE
   $scope.evalID = $rootScope.ID;
   $scope.course = "T-427-WEPO";
   $scope.semester = "20151";
+  $scope.courseQ = [];
+  $scope.ans = [];
 
    $http.get(SERVER_URL + 'courses/' + $scope.course + '/' + $scope.semester + '/evaluations/' + $scope.evalID)
   .success(function (data, status, headers, config) {
     console.log("SUCCESS");
     console.log(data);
-    
+
     $scope.display = data;
+    $scope.courseQ = data.CourseQuestions;
+    console.log($scope.courseQ);
+    
+    // for (var i = 0; i < data.CourseQuestions.length; i++) {
+    //   $scope.ans[i] = $scope.courseQ.Answers[i];
+    // }
+    // console.log($scope.ans);
   })
   .error(function (data, status, headers, config) {
     console.log("ERROR");
