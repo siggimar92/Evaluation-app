@@ -1,15 +1,35 @@
 <div class="container jumbotron">
-	<div class="pull-left col-lg-5 col-md-5 col-sm-12 col-xs-12">
+<!-- 	<div class="pull-left col-lg-5 col-md-5 col-sm-12 col-xs-12">
 		<h3>My Courses</h3>
-		<ul class="courses-user">
+		<ul class="custom-list-style">
 			<li ng-repeat="data in displayCourses"> <a href="{{data.CourseID}}">{{data.Name}}</a></li>
 		</ul>
-	</div>
-	<div class="pull-right col-lg-5 col-md-5 col-sm-12 col-xs-12">
-		<h3>My Evaluations</h3>
-		<ul class="evaluations-user">
-			<li ng-repeat="data in displayEvals"> <a href="{{data.CourseID}}">{{data.CourseName}}</a></li>
-		</ul>
+	</div> -->
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<h3>Evaluations</h3>
+		<div class="table-responsive">
+			<table class="table table-hover my-table">
+				<thead class="table-head">
+			      <tr>
+			        <th>Template title</th>
+			        <th>Template title (EN)</th>
+			        <th>Status</th>
+			      </tr>
+			      <tbody>
+			        <tr ng-repeat="data in displayEvals" class="active">
+			          <td><a href="{{data.ID}}">{{data.TemplateTitle}}</a></td>
+			          <td><a href="{{data.ID}}">{{data.TemplateTitleEN}}</a></td>
+			          <td class="status">({{data.Status}})</td>
+			        </tr>
+			      </tbody>
+			    </thead>
+			</table>
+		</div>
+
+
+<!-- 		<ul class="custom-list-style">
+			<li ng-repeat="data in displayEvals"> <a href="{{data.ID}}">{{data.TemplateTitle}}</a> ({{data.Status}})</li>
+		</ul> -->
 	</div>
 </div>
 
