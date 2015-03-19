@@ -18,13 +18,19 @@ evalApp.config(function config( $stateProvider ) {
   });
 });
 
-evalApp.controller( 'UserCtrl', function UserCtrl( $scope, $http, SERVER_URL) {
+evalApp.controller( 'UserCtrl', function UserCtrl( $scope, $http, SERVER_URL, $rootScope, $location) {
   $scope.displayCourses = [];
   $scope.displayEvals = [];
   console.log("inside UserCtrl");
   
   // console.log($http.defaults.headers.common.Authorization);
   // console.log($http.get(SERVER_URL + 'my/courses'));
+
+  $scope.doEval = function(ID) {
+    console.log(ID);
+     $rootScope.ID = ID; 
+     $location.path('/evaluations');
+  };
 
   $http.get(SERVER_URL + 'my/courses')
   .success(function (data, status, headers, config) {
@@ -54,3 +60,12 @@ $http.get(SERVER_URL + '/evaluations')
   });   
 
 });
+
+// evalApp.factory('Data', function ($scope, $http, SERVER_URL) {
+//   return {
+//     getTemplateByID: function (ID) {
+//       return $http.get(SERVER_URL + "evaluations/:id", {id:ID});
+//       console.log(ID);
+//     };
+//   };
+// })

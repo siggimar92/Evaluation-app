@@ -1,12 +1,36 @@
-<div class="container">
-	<h2>Evaluation Templates</h2>
-	<div class="jumbotron col-lg-5 col-md-5 col-sm-12 col-xs-12 pull-left">
-		<ul>
-			<li ng-repeat="t in templates">ID: {{t.ID}} | Title: {{t.Title}} </li>
-		</ul>
-	</div>
-	<div class="jumbotron col-lg-5 col-md-5 col-sm-12 col-xs-12 pull-right">
-	</div>
-	<a type="button" href="#/newTemplate" class="my-button pull-left" >New template</a>
+<div class="pop-up-submit container jumbotron col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+	<form>
+		<input class="form-control" class="start-date" placeholder="Start date">
+		<br>
+		<input class="form-control" class="end-date" placeholder="End date">
+		<br>
+		<a type="button" class="my-small-button pull-left" href="#" >submit</a>
+		<a type="button" class="my-small-button-close pull-right" href="#" >close</a>
+	</form>
+</div>
+
+<div class="container jumbotron">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<h3>Evaluation Templates</h3>
+		<a type="button" href="#/newTemplate" class="my-button pull-right" >New template</a>
+		<div class="table-responsive">
+			<table class="table table-hover my-table">
+				<thead class="table-head">
+			      <tr>
+			        <th>Template title</th>
+			        <th>Template title (EN)</th>
+			        <th>Submit Template</th>
+			      </tr>
+			      <tbody>
+			        <tr ng-repeat="data in templates" class="active">
+			          <td><a href="{{data.ID}}">{{data.Title}}</a></td>
+			          <td><a href="{{data.ID}}">{{data.TitleEN}}</a></td>
+			          <td><a type="button" href="#" class="my-small-button">Submit</a>
+			        </tr>
+			      </tbody>
+			    </thead>
+			</table>
+		</div>
+	</div>	
 </div>
 
