@@ -180,7 +180,7 @@ evalApp.controller( 'newTemplateCtrl', function newTemplateCtrl( $scope, $http, 
     })
     .error(function (data, status, headers, config) {
       console.log("ERROR");
-    })
+    });
   };
 });
 
