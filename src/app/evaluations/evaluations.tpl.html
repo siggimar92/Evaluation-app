@@ -13,13 +13,16 @@
 			<hr>
 			<p><strong>{{x.Text}} / {{x.TextEN}}</strong></p>
 
+			<!-- text box -->
 			<div ng-if="x.Type == 'text'">
 				<div ng-repeat="y in x.Answers">
 					{{y.Text}} / {{y.TextEN}}
 				</div>
 				<input type="text" class="form-control" id="text-answer" placeholder="Answer" required autofocus>
 			</div>
-			<div ng-if="x.Type == 'single'">
+
+			<!-- check box -->
+			<div ng-if="x.Type == 'multible'">
 				<div ng-repeat="y in x.Answers">
 					<div class="checkbox">
 					    <label>
@@ -28,7 +31,9 @@
 					  </div>
 				</div>
 			</div>
-			<div ng-if="x.Type == 'multible'">
+
+			<!-- Radio buttons -->
+			<div ng-if="x.Type == 'single'">
 				<div ng-repeat="y in x.Answers">
 					<div class="radio">
 					  <label>
