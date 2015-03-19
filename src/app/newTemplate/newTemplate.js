@@ -22,45 +22,72 @@ evalApp.controller( 'newTemplateCtrl', function newTemplateCtrl( $scope, $http, 
 
  console.log("inside newTemplateCtrl");
 
-  $scope.title = "";
-  $scope.titleEN = "";
-  $scope.intro = "";
-  $scope.introEN = "";
+  $scope.evalTitle = "";
+  $scope.evalTitleEN = "";
+  $scope.evalIntro = "";
+  $scope.evalIntroEN = "";
 
   $scope.courseQ = [];
   $scope.teacherQ = [];
-  $scope.answer = [];
 
-  console.log($scope.title);
-  console.log($scope.titleEN);
-  console.log($scope.intro);
-  console.log($scope.introEN);
-  console.log($scope.courseQ);
-  console.log($scope.teacherQ);
+  $scope.CAns = [];
+  $scope.TAns = [];
 
-  $scope.oneAnswer = {
-    Text: "svar",
-    TextEN: "Answer",
-    Weight: 5
-  };
-  var oneQuestion = {
-    Text: "Spurning",
-    TextEN: "Question",
-    Type: "single",
-    Answers: $scope.oneAnswer
-  };
+  $scope.qText = "";
+  $scope.qTextEN = "";
+  $scope.qType = "";
 
-  $scope.addCQ = function() {
-    $scope.CourseQ.push();
+  $scope.aText = "";
+  $scope.aTextEN = "";
+  $scope.aWeight = 0;
+
+  $scope.logThis = function() {
+    console.log("");
+    console.log("Title: " + $scope.evalTitle);
+    console.log("TitleEN: " + $scope.evalTitleEN);
+    console.log("Intro: " + $scope.evalIntro);
+    console.log("IntroEN: " + $scope.evalIntroEN);
   };
 
-  $scope.addTQ = function() {
-    $scope.teacherQ.push();
+  $scope.addCAnswer = function() {
+    console.log("");
+    console.log("aText: " + $scope.aText);
+    console.log("aTextEN: " + $scope.aTextEN);
+    console.log("aWeight: " + $scope.aWeight);
+    var oneA = { 
+      Text: $scope.aText,
+      TextEN: $scope.aTextEN,
+      Weight: $scope.aWeight
+    };
+    $scope.CAns.push(oneA);
+    console.log("Answers: ");
+    console.log($scope.CAns);
   };
+
+  $scope.addCQuestion = function() {
+    console.log("");
+    console.log("qText: " + $scope.qText);
+    console.log("qTextEN: " + $scope.qTextEN);
+    console.log("qType: " + $scope.qType);
+
+    var oneQ = { 
+      Text: $scope.qText,
+      TextEN: $scope.qTextEN,
+      Type: $scope.qType,
+      Answers: $scope.CAns
+    };
+    $scope.courseQ.push(oneQ);
+    console.log("questions:");
+    console.log($scope.courseQ);
+
+  };
+
+
 
 
   $scope.createTemplate = function(title, titleEN, intro, introEN, courseQ, teacherQ) {
   console.log("button press");
+
   //Simple POST request example (passing data) :  
   };
 });
