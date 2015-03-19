@@ -13,13 +13,13 @@
 			<hr>
 			<p><strong>{{x.Text}} / {{x.TextEN}}</strong></p>
 
-			<div ng-if="{{x.Type}} == "text"">
+			<div ng-if="x.Type == 'text'">
 				<div ng-repeat="y in x.Answers">
 					{{y.Text}} / {{y.TextEN}}
 				</div>
-				<input type="text" class="form-control" id="text-answer" placeholder="Username" ng-model="text-answer" required autofocus>
+				<input type="text" class="form-control" id="text-answer" placeholder="Answer" required autofocus>
 			</div>
-			<div ng-if="{{x.Type}} == "single"">
+			<div ng-if="x.Type == 'single'">
 				<div ng-repeat="y in x.Answers">
 					<div class="checkbox">
 					    <label>
@@ -28,7 +28,7 @@
 					  </div>
 				</div>
 			</div>
-			<div ng-if="{{x.Type}} == "multible"">
+			<div ng-if="x.Type == 'multible'">
 				<div ng-repeat="y in x.Answers">
 					<div class="radio">
 					  <label>
@@ -48,14 +48,13 @@
 			<hr>
 			<p><strong>{{x.Text}} / {{x.TextEN}}</strong></p>
 
-<!-- HAFFI!!!! KIKJA HER A NG-IF -->
-			<div ng-if="{{x.Type}} == "text"">
+			<div ng-if="x.Type == 'text'">
 				<div ng-repeat="y in x.Answers">
 					{{y.Text}} / {{y.TextEN}}
 				</div>
-				<input type="text" class="form-control" id="text-answer" placeholder="Username" ng-model="text-answer" required autofocus>
+				<input type="text" class="form-control" id="text-answer" placeholder="Answer" required autofocus>
 			</div>
-			<div ng-if="{{x.Type}} == "single"">
+			<div ng-if="x.Type == 'single'">
 				<div ng-repeat="y in x.Answers">
 					<div class="checkbox">
 					    <label>
@@ -64,7 +63,7 @@
 					  </div>
 				</div>
 			</div>
-			<div ng-if="{{x.Type}} == "multible"">
+			<div ng-if="x.Type == 'multible'">
 				<div ng-repeat="y in x.Answers">
 					<div class="radio">
 					  <label>
@@ -74,7 +73,7 @@
 					</div>
 				</div>
 			</div>
-<!--// HAFFI!!!! KIKJA HER A NG-IF //-->
+
 		</div>
 	</div>
 	<br>
