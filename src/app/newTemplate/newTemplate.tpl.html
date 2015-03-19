@@ -102,6 +102,26 @@
 			</tr>
 		</table>
 	</div>
+
+	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pull-right jumbotron">
+		<h3>Teacher questions</h3>
+		<table class="table">
+			<tr>
+				<td><strong>Spurning</strong></td>
+				<td><strong>Question (EN)</strong></td>
+				<td><strong>Type</strong></td>
+				<td><strong># of ans</strong></td>
+			</tr>
+			<tr ng-repeat="q in courseQ">
+				<td>{{q.Text}}</td>
+				<td>{{q.TextEN}}</td>
+				<td>{{q.Type}}</td>
+				<td>{{q.Answers.length}}
+			</tr>
+		</table>
+	</div>
+
+	<button class="btn btn-danger">SUBMIT EVALUATION</button>
 </div>
 
 
