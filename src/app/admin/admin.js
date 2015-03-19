@@ -30,14 +30,16 @@ evalApp.controller( 'AdminCtrl', function AdminCtrl( $scope, $http, SERVER_URL, 
 
   $http.get(SERVER_URL + 'evaluationtemplates')
   .success(function (data, status, headers, config) {
+    $http.defaults.headers.common.Authorization = auth;
     console.log("SUCCESS");
     console.log(data);
-    $http.defaults.headers.common.Authorization = auth;
     console.log("auth: " + auth);
-    for (var i = 0; i < data.length; i++) {
-      // console.log(data[i]);
-      $scope.templates[i] = data[i];
-    }
+
+    $scope.templates = data;
+    // for (var i = 0; i < data.length; i++) {
+    //   console.log(data[i]);
+    //   $scope.templates[i] = data[i];
+    // }
   })
   .error(function (data, status, headers, config) {
     console.log("ERROR");

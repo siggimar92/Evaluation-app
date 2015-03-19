@@ -1,19 +1,85 @@
 <div class="container jumbotron">
-	<h3>Describe your evaluation:</h3>
-	<form>
-		<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-left">
-		  <input type="title" class="form-control" id="title" placeholder="Titill">
-		</div>
-		<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right">
-		  <input type="titleEN" class="form-control" id="titleEN" placeholder="Title (EN)">
-		</div>
-		<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-left">
-		  <input type="IntroText" class="form-control" id="IntroText" placeholder="Lysing kennslumats">
-		</div>
-		<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right">
-		  <input type="IntroTextEN" class="form-control" id="IntroTextEN" placeholder="Introduction text (EN)">
-		</div>
+	<h3>Describe your evaluation</h3>
+	<form class="input-group">
+		<input type="text" class="form-control" ng-model="evalTitle" placeholder="Nafn kennslumats">
+		<input type="text" class="form-control" ng-model="evalTitleEN" placeholder="Title of evalutaion">
+		<input type="text" class="form-control" ng-model="evalIntro" placeholder="Inngangur">
+		<input type="text" class="form-control" ng-model="evalIntroEN" placeholder="Introduction">
+		<span class="input-group-btn">
+				<button class="btn btn-default" ng-click="logThis()">Prufa</button>
+		</span>
 	</form>
+</div>
+
+<div class="container">
+	<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pull-left jumbotron">
+		<form class="input-group jumbotron">
+			<h4>Add a course question</h4>
+			<input type="text" class="form-control" ng-model="qText" placeholder="Spurning">
+			<input type="text" class="form-control" ng-model="qTextEN" placeholder="Question">
+			<input type="text" class="form-control" ng-model="qType" placeholder="Type">
+			<span class="input-group-btn">
+				<button class="btn btn-default" ng-click="addCQuestion()">Prufa</button>
+			</span>
+		</form>
+		<div class="jumbotron">
+			<form class="input-group">
+				<h4>Add a answer for this question</h4>
+				<input type="text" class="form-control" ng-model="aText" placeholder="Svar">
+				<input type="text" class="form-control" ng-model="aTextEN" placeholder="Answer">
+				<input type="number" class="form-control" ng-model="aWeight" placeholder="Type">
+				<span class="input-group-btn">
+					<button class="btn btn-default" ng-click="addCAnswer()">Prufa</button>
+				</span>
+			</form>
+			<h5>Answers to this question</h5>
+			<table>
+				<tr>
+					<td>Text</td>
+					<td>Text (EN)</td>
+					<td>Weight</td>
+				</tr>
+				<tr ng-repeat="a in CAns">
+					<td>{{a.Text}}</td>
+					<td>{{a.TextEN}}</td>
+					<td>{{a.Weight}}</td>
+				</tr>
+			</table>
+		</div>
+
+<!-- 		<ul>
+			<h5>Questions:</h5>
+			<li ng-repeat="q in courseQ">{{q.Text}} | {{q.TextEN}} | {{q.Type}} </li>
+			<h5>Answers:</h5>
+		</ul> -->
+	</div>
+
+	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pull-right jumbotron">
+		<!-- HER KOMA TEACHER QUESTIONS -->
+		<h4>Add a teacher question</h4>
+	</div>
+</div>
+
+
+
+
+
+
+<!-- <div class="container jumbotron">
+	<h3>Describe your evaluation:</h3> 
+		<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-left">
+		  <input ng-bind="title" class="form-control" placeholder="Titill (IS)">
+		</div>
+		<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right">
+		  <input nig-bind="titleEN" class="form-control" placeholder="Title (EN)">
+		</div>
+		<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-left">
+		  <input nig-bind="intro" class="form-control" placeholder="Lysing kennslumats (IS)">
+		</div>
+		<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right">
+		  <input nig-bind="introEN" class="form-control" placeholder="Introduction text (EN)">
+		</div>
+		<button ng-click="logThis()" class="my-button">Prufa</button>
 </div>
 
 <div class="container">
@@ -23,11 +89,9 @@
 		<p>{{IntroText}}</p>
 		<br>
 		<p>{{IntroTextEN}}</p>
-<!-- 		<ul>
-			<li ng-repeat="t in templates">ID: {{t.ID}} | Title: {{t.Title}} </li>
-		</ul> -->
 		<button class="my-button">Submit</button>
 	</div>
+
 	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pull-right jumbotron">
 		<h3>Add a Question:</h3>
 		<form>
@@ -66,3 +130,4 @@
 		</form>
 	</div>
 </div>
+ -->
