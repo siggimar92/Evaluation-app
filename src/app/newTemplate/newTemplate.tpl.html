@@ -12,32 +12,29 @@
 </div>
 
 <div class="container">
-	<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pull-left jumbotron">
-		<form class="input-group jumbotron">
-			<h4>Add a course question</h4>
-			<input type="text" class="form-control" ng-model="qText" placeholder="Spurning">
-			<input type="text" class="form-control" ng-model="qTextEN" placeholder="Question">
-			<input type="text" class="form-control" ng-model="qType" placeholder="Type">
-			<span class="input-group-btn">
-				<button class="btn btn-default" ng-click="addCQuestion()">Prufa</button>
-			</span>
-		</form>
+	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-left jumbotron">
 		<div class="jumbotron">
 			<form class="input-group">
+				<h4>Add a course question</h4>
+				<input type="text" class="form-control" ng-model="cQText" placeholder="Spurning">
+				<input type="text" class="form-control" ng-model="cQTextEN" placeholder="Question">
+				<input type="text" class="form-control" ng-model="cQType" placeholder="Type">
+			</form>
+			<form class="input-group">
 				<h4>Add a answer for this question</h4>
-				<input type="text" class="form-control" ng-model="aText" placeholder="Svar">
-				<input type="text" class="form-control" ng-model="aTextEN" placeholder="Answer">
-				<input type="number" class="form-control" ng-model="aWeight" placeholder="Type">
+				<input type="text" class="form-control" ng-model="cAText" placeholder="Svar">
+				<input type="text" class="form-control" ng-model="cATextEN" placeholder="Answer">
+				<input type="number" class="form-control" ng-model="cAWeight" placeholder="Type">
 				<span class="input-group-btn">
-					<button class="btn btn-default" ng-click="addCAnswer()">Prufa</button>
+					<button class="btn btn-default" ng-click="addCAnswer()">Add answer</button>
 				</span>
 			</form>
 			<h5>Answers to this question</h5>
-			<table>
+			<table class="table">
 				<tr>
-					<td>Text</td>
-					<td>Text (EN)</td>
-					<td>Weight</td>
+					<td><strong>Text</strong></td>
+					<td><strong>Text (EN)</strong></td>
+					<td><strong>Weight</strong></td>
 				</tr>
 				<tr ng-repeat="a in CAns">
 					<td>{{a.Text}}</td>
@@ -45,18 +42,65 @@
 					<td>{{a.Weight}}</td>
 				</tr>
 			</table>
+			<span class="input-group-btn">
+				<button class="btn btn-success" ng-click="addCQuestion()">Submit This question</button>
+			</span>
 		</div>
-
-<!-- 		<ul>
-			<h5>Questions:</h5>
-			<li ng-repeat="q in courseQ">{{q.Text}} | {{q.TextEN}} | {{q.Type}} </li>
-			<h5>Answers:</h5>
-		</ul> -->
 	</div>
 
-	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pull-right jumbotron">
-		<!-- HER KOMA TEACHER QUESTIONS -->
-		<h4>Add a teacher question</h4>
+	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right jumbotron">
+		<div class="jumbotron">
+			<form class="input-group">
+				<h4>Add a teacher question</h4>
+				<input type="text" class="form-control" ng-model="cQText" placeholder="Spurning">
+				<input type="text" class="form-control" ng-model="cQTextEN" placeholder="Question">
+				<input type="text" class="form-control" ng-model="cQType" placeholder="Type">
+			</form>
+			<form class="input-group">
+				<h4>Add a answer for this question</h4>
+				<input type="text" class="form-control" ng-model="cAText" placeholder="Svar">
+				<input type="text" class="form-control" ng-model="cATextEN" placeholder="Answer">
+				<input type="number" class="form-control" ng-model="cAWeight" placeholder="Type">
+				<span class="input-group-btn">
+					<button class="btn btn-default" ng-click="addCAnswer()">Add answer</button>
+				</span>
+			</form>
+			<h5>Answers to this question</h5>
+			<table class="table">
+				<tr>
+					<td><strong>Text</strong></td>
+					<td><strong>Text (EN)</strong></td>
+					<td><strong>Weight</strong></td>
+				</tr>
+				<tr ng-repeat="a in CAns">
+					<td>{{a.Text}}</td>
+					<td>{{a.TextEN}}</td>
+					<td>{{a.Weight}}</td>
+				</tr>
+			</table>
+			<span class="input-group-btn">
+				<button class="btn btn-success" ng-click="addCQuestion()">Submit This question</button>
+			</span>
+		</div>
+	</div>
+
+
+	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pull-left jumbotron">
+		<h3>Course questions</h3>
+		<table class="table">
+			<tr>
+				<td><strong>Spurning</strong></td>
+				<td><strong>Question (EN)</strong></td>
+				<td><strong>Type</strong></td>
+				<td><strong># of ans</strong></td>
+			</tr>
+			<tr ng-repeat="q in courseQ">
+				<td>{{q.Text}}</td>
+				<td>{{q.TextEN}}</td>
+				<td>{{q.Type}}</td>
+				<td>{{q.Answers.length}}
+			</tr>
+		</table>
 	</div>
 </div>
 

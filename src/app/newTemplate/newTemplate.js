@@ -33,13 +33,21 @@ evalApp.controller( 'newTemplateCtrl', function newTemplateCtrl( $scope, $http, 
   $scope.CAns = [];
   $scope.TAns = [];
 
-  $scope.qText = "";
-  $scope.qTextEN = "";
-  $scope.qType = "";
+  $scope.cQText = "";
+  $scope.cQTextEN = "";
+  $scope.cQType = "";
 
-  $scope.aText = "";
-  $scope.aTextEN = "";
-  $scope.aWeight = 0;
+  $scope.cAText = "";
+  $scope.cATextEN = "";
+  $scope.cAWeight = 0;
+
+  $scope.tQText = "";
+  $scope.tQTextEN = "";
+  $scope.tQType = "";
+
+  $scope.tAText = "";
+  $scope.tATextEN = "";
+  $scope.tAWeight = 0;
 
   $scope.logThis = function() {
     console.log("");
@@ -51,29 +59,44 @@ evalApp.controller( 'newTemplateCtrl', function newTemplateCtrl( $scope, $http, 
 
   $scope.addCAnswer = function() {
     console.log("");
-    console.log("aText: " + $scope.aText);
-    console.log("aTextEN: " + $scope.aTextEN);
-    console.log("aWeight: " + $scope.aWeight);
-    var oneA = { 
-      Text: $scope.aText,
-      TextEN: $scope.aTextEN,
-      Weight: $scope.aWeight
+    console.log("cAText: " + $scope.cAText);
+    console.log("cATextEN: " + $scope.cATextEN);
+    console.log("cAWeight: " + $scope.cAWeight);
+    var onecA = { 
+      Text: $scope.cAText,
+      TextEN: $scope.cATextEN,
+      Weight: $scope.cAWeight
     };
-    $scope.CAns.push(oneA);
+    $scope.CAns.push(onecA);
+    console.log("Answers: ");
+    console.log($scope.CAns);
+  };
+
+  $scope.addTAnswer = function() {
+    console.log("");
+    console.log("tAText: " + $scope.tAText);
+    console.log("tATextEN: " + $scope.tATextEN);
+    console.log("tAWeight: " + $scope.tAWeight);
+    var onetA = { 
+      Text: $scope.tAText,
+      TextEN: $scope.tATextEN,
+      Weight: $scope.tAWeight
+    };
+    $scope.TAns.push(onetA);
     console.log("Answers: ");
     console.log($scope.CAns);
   };
 
   $scope.addCQuestion = function() {
     console.log("");
-    console.log("qText: " + $scope.qText);
-    console.log("qTextEN: " + $scope.qTextEN);
-    console.log("qType: " + $scope.qType);
+    console.log("cQText: " + $scope.cQText);
+    console.log("cQTextEN: " + $scope.cQTextEN);
+    console.log("cQType: " + $scope.cQType);
 
     var oneQ = { 
-      Text: $scope.qText,
-      TextEN: $scope.qTextEN,
-      Type: $scope.qType,
+      Text: $scope.cQText,
+      TextEN: $scope.cQTextEN,
+      Type: $scope.cQType,
       Answers: $scope.CAns
     };
     $scope.courseQ.push(oneQ);
@@ -81,9 +104,6 @@ evalApp.controller( 'newTemplateCtrl', function newTemplateCtrl( $scope, $http, 
     console.log($scope.courseQ);
 
   };
-
-
-
 
   $scope.createTemplate = function(title, titleEN, intro, introEN, courseQ, teacherQ) {
   console.log("button press");
