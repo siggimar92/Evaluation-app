@@ -54,7 +54,7 @@ evalApp.controller( 'AdminCtrl', function AdminCtrl( $scope, $http, SERVER_URL, 
     $event.stopPropagation();
     $scope.openedE = true;
   };
-  
+
   $scope.toggleMin = function() {
     $scope.minDate = $scope.minDate ? null : new Date();
   };
