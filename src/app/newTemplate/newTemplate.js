@@ -29,6 +29,7 @@ evalApp.controller( 'newTemplateCtrl', function newTemplateCtrl( $scope, $http, 
   $scope.evalTitleEN = "";
   $scope.evalIntro = "";
   $scope.evalIntroEN = "";
+  $scope.errorMessage = "";
 
   $scope.courseQ = [];
   $scope.teacherQ = [];
@@ -179,7 +180,10 @@ evalApp.controller( 'newTemplateCtrl', function newTemplateCtrl( $scope, $http, 
       console.log("SUCCESS");
     })
     .error(function (data, status, headers, config) {
-      console.log("ERROR");
+      $scope.errorMessage = ' Notice! Nafn, Title, Inngangur and intro fields 
+                              must be filled. Inngangur and Intro can not 
+                              exceed 100 letters. The template must also 
+                              include at least 1 question. \n';
     });
   };
 });

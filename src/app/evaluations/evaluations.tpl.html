@@ -16,7 +16,7 @@
 				<div ng-repeat="y in x.Answers">
 					{{y.Text}} / {{y.TextEN}}
 				</div>
-				<input type="text" class="form-control" id="text-answer" placeholder="Answer" required autofocus>
+				<input type="text" class="form-control input-answer" id="text-answer" placeholder="Answer" required autofocus>
 			</div>
 
 			<!-- check box -->
@@ -24,7 +24,8 @@
 				<div ng-repeat="y in x.Answers">
 					<div class="checkbox">
 					    <label>
-					      <input type="checkbox"> {{y.Text}} / {{y.TextEN}}
+					      <input type="checkbox"> 
+					      {{y.Text}} / {{y.TextEN}}
 					    </label>
 					  </div>
 				</div>
@@ -55,18 +56,19 @@
 				<div ng-repeat="y in x.Answers">
 					{{y.Text}} / {{y.TextEN}}
 				</div>
-				<input type="text" class="form-control" id="text-answer" placeholder="Answer" required autofocus>
+				<input type="text" class="form-control input-answer" id="text-answer" placeholder="Answer" required autofocus>
 			</div>
 			<div ng-if="x.Type == 'single'">
 				<div ng-repeat="y in x.Answers">
 					<div class="checkbox">
 					    <label>
-					      <input type="checkbox"> {{y.Text}} / {{y.TextEN}}
+					      <input type="checkbox"> 
+					      {{y.Text}} / {{y.TextEN}}
 					    </label>
 					  </div>
 				</div>
 			</div>
-			<div ng-if="x.Type == 'multible'">
+			<div ng-if="x.Type == 'multiple'">
 				<div ng-repeat="y in x.Answers">
 					<div class="radio">
 					  <label>
