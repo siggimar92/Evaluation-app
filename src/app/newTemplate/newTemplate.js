@@ -22,6 +22,9 @@ evalApp.controller( 'newTemplateCtrl', function newTemplateCtrl( $scope, $http, 
 
  console.log("inside newTemplateCtrl");
 
+  var auth = $http.defaults.headers.common.Authorization;
+  $http.defaults.headers.common.Authorization = auth;
+
   $scope.evalTitle = "";
   $scope.evalTitleEN = "";
   $scope.evalIntro = "";
@@ -49,6 +52,8 @@ evalApp.controller( 'newTemplateCtrl', function newTemplateCtrl( $scope, $http, 
   $scope.tATextEN = "";
   $scope.tAWeight = 0;
 
+  $scope.postME = {};
+
   $scope.logThis = function() {
     console.log("");
     console.log("Title: " + $scope.evalTitle);
@@ -70,6 +75,33 @@ evalApp.controller( 'newTemplateCtrl', function newTemplateCtrl( $scope, $http, 
     $scope.CAns.push(onecA);
     console.log("Answers: ");
     console.log($scope.CAns);
+
+    $scope.cAText = "";
+    $scope.cATextEN = "";
+    $scope.cAWeight = 0;
+  };
+
+  $scope.addCQuestion = function() {
+    console.log("");
+    console.log("cQText: " + $scope.cQText);
+    console.log("cQTextEN: " + $scope.cQTextEN);
+    console.log("cQType: " + $scope.cQType);
+
+    var onecQ = { 
+      Text: $scope.cQText,
+      TextEN: $scope.cQTextEN,
+      Type: $scope.cQType,
+      Answers: $scope.CAns
+    };
+
+    $scope.courseQ.push(onecQ);
+    console.log("questions:");
+    console.log($scope.courseQ);
+
+    $scope.cQText = "";
+    $scope.cQTextEN = "";
+    $scope.cQType = "";
+    $scope.CAns = [];
   };
 
   $scope.addTAnswer = function() {
@@ -84,30 +116,73 @@ evalApp.controller( 'newTemplateCtrl', function newTemplateCtrl( $scope, $http, 
     };
     $scope.TAns.push(onetA);
     console.log("Answers: ");
-    console.log($scope.CAns);
+    console.log($scope.TAns);
+
+    $scope.tAText = "";
+    $scope.tATextEN = "";
+    $scope.tAWeight = 0;
   };
 
-  $scope.addCQuestion = function() {
+  $scope.addTQuestion = function() {
     console.log("");
-    console.log("cQText: " + $scope.cQText);
-    console.log("cQTextEN: " + $scope.cQTextEN);
-    console.log("cQType: " + $scope.cQType);
+    console.log("tQText: " + $scope.tQText);
+    console.log("tQTextEN: " + $scope.tQTextEN);
+    console.log("tQType: " + $scope.tQType);
 
-    var oneQ = { 
-      Text: $scope.cQText,
-      TextEN: $scope.cQTextEN,
-      Type: $scope.cQType,
-      Answers: $scope.CAns
+    var onetQ = { 
+      Text: $scope.tQText,
+      TextEN: $scope.tQTextEN,
+      Type: $scope.tQType,
+      Answers: $scope.TAns
     };
-    $scope.courseQ.push(oneQ);
+    $scope.teacherQ.push(onetQ);
     console.log("questions:");
-    console.log($scope.courseQ);
+    console.log($scope.teacherQ);
+
+    $scope.tQText = "";
+    $scope.tQTextEN = "";
+    $scope.tQType = "";
+    $scope.TAns = [];
 
   };
 
-  $scope.createTemplate = function(title, titleEN, intro, introEN, courseQ, teacherQ) {
-  console.log("button press");
+  $scope.combine = function () {
+    console.log("putting everything together");
 
-  //Simple POST request example (passing data) :  
+    $scope.postME = {
+      Title: $scope.evalTitle,
+      TitleEN: $scope.evalTitleEN,
+      IntroText: $scope.evalIntro,
+      IntroTextEN: $scope.evalIntroEN,
+      CourseQuestions: $scope.courseQ,
+      TeacherQuestions: $scope.teacherQ
+    };
+
+    console.log($scope.postME);
+
+  };
+
+  $scope.createTemplate = function() {
+    console.log("Creating template");
+
+    //Simple POST request example (passing data) : 
+    $http.post(SERVER_URL + 'evaluationtemplates', 
+      {
+        Title: $scope.evalTitle,
+        TitleEN: $scope.evalTitleEN,
+        IntroText: $scope.evalIntro,
+        IntroTextEN: $scope.evalIntroEN,
+        CourseQuestions: $scope.courseQ,
+        TeacherQuestions: $scope.teacherQ
+      })
+    .success(function (data, status, headers, config) {
+      console.log("SUCCESS");
+    })
+    .error(function (data, status, headers, config) {
+      console.log("ERROR");
+    });
   };
 });
+
+
+
