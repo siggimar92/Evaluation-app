@@ -1,22 +1,36 @@
 <div class="container jumbotron-extra">	
 	<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-12 col-xs-12">
 		<h4 class="warning-add">Fill in start date and end date to submit template<h4>
-		<form>
-			<span>
-				<input class="form-control" class="start-date" placeholder="Start date">
-				<br>
-				<a type="button" class="my-small-button btn-block" ng-click="startDate()" >Generate start date</a>
-			</span>
-			<br>
-			<span>
-				<input class="form-control" class="end-date" placeholder="End date">
-				<br>
-				<a type="button" class="my-small-button btn-block" ng-click="endDate()" >Generate end date</a>
-			</span>
-			<br>
-			<a type="button" class="my-button btn-block" href="#" >submit</a>
-			<!-- <a type="button" class="my-small-button-close pull-right" href="#" >close</a> -->
-		</form>
+		<h4 ng-view="toSubmitTitle">Submission for: "{{toSubmitTitle}}"</h4>
+
+	    <h4>Popup</h4>
+	    <div class="row">
+	        <div class="col-md-8">
+	            <p class="input-group">
+	              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="toSubmitStart" is-open="opened" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+	              <span class="input-group-btn">
+	                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+	              </span>
+	            </p>
+	        </div>
+	    </div>
+	    <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
+	    <hr />
+	    <h4>Popup</h4>
+	    <div class="row">
+	        <div class="col-md-8">
+	            <p class="input-group">
+	              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="toSubmitEnd" is-open="openedE" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+	              <span class="input-group-btn">
+	                <button type="button" class="btn btn-default" ng-click="openE($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+	              </span>
+	            </p>
+	        </div>
+	    </div>
+	    <button type="button" class="btn btn-sm btn-info" ng-click="todayE()">Today</button>
+
+		<a type="button" class="my-button btn-block" href="#" >submit</a>
+		<!-- <a type="button" class="my-small-button-close pull-right" href="#" >close</a> -->
 	</div>
 </div>
 
@@ -36,7 +50,7 @@
 			        <tr ng-repeat="data in templates" class="active">
 			          <td><!-- <a href="{{data.ID}}"> -->{{data.Title}}<!-- </a> --></td>
 			          <td><!-- <a href="{{data.ID}}"> -->{{data.TitleEN}}<!-- </a> --></td>
-			          <td><a type="button" href="#" class="my-small-button">Submit</a>
+			          <td><a type="button" ng-click="postEval(data)" class="my-small-button">Submit</a>
 			        </tr>
 			      </tbody>
 			    </thead>

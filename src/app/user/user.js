@@ -37,10 +37,11 @@ evalApp.controller( 'UserCtrl', function UserCtrl( $scope, $http, SERVER_URL, $r
     console.log("SUCCESS");
     console.log(data);
 
-    for (var i = 0; i < data.length; i++) {
-      //console.log(data[i].Name);
-      $scope.displayCourses[i] = data[i];
-    }
+    $scope.displayCourses = data;
+    // for (var i = 0; i < data.length; i++) {
+    //   //console.log(data[i].Name);
+    //   $scope.displayCourses[i] = data[i];
+    // }
   })
   .error(function (data, status, headers, config) {
     console.log("ERROR");
@@ -51,9 +52,10 @@ $http.get(SERVER_URL + '/evaluations')
     console.log("SUCCESS");
     console.log(data);
 
-    for (var i = 0; i < data.length; i++) {
-      $scope.displayEvals[i] = data[i];
-    }
+    $scope.displayEvals = data;
+    // for (var i = 0; i < data.length; i++) {
+    //   $scope.displayEvals[i] = data[i];
+    // }
   })
   .error(function (data, status, headers, config) {
     console.log("ERROR");
