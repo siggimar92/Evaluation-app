@@ -26,15 +26,11 @@ evalApp.controller( 'AdminCtrl', function AdminCtrl( $scope, $http, SERVER_URL, 
   $http.defaults.headers.common.Authorization = auth;
   console.log("Auth: " + auth);
 
-  // $scope.Days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
-  // $scope.Months = ["Janúar", "Febrúar", "Mars", "Apríl", "Maí", "Júní", "Júlí", "Ágúst", ]
-
   $scope.templates = [];
 
   $scope.toSubmitID = 0;
-  //$scope.toSubmitStart;
-  // $scope.toSubmitEnd = null;
   $scope.toSubmitTitle = "";
+  $scope.toSubmitTitleEN = "";
 
 
   $scope.today = function() {
@@ -67,7 +63,6 @@ evalApp.controller( 'AdminCtrl', function AdminCtrl( $scope, $http, SERVER_URL, 
   $scope.dateOptions = {
     startingDay: 1
   };
-
   $scope.format = 'fullDate';
 
   $http.get(SERVER_URL + 'evaluationtemplates')
@@ -92,34 +87,34 @@ evalApp.controller( 'AdminCtrl', function AdminCtrl( $scope, $http, SERVER_URL, 
     $scope.toSubmitID = data.ID;
     $scope.toSubmitTitle = data.Title;
     $scope.toSubmitTitleEN = data.TitleEN;
-    console.log($scope.toSubmitID);
   };
 
-  $scope.startDate = function () {
-    var dateIso = new Date();
-    console.log(dateIso.toISOString());
-    //console.log(dateTime.toISOString()); 
+  $scope.submitEval = function() {
+    console.log("ID: " + $scope.toSubmitID);
+    console.log("Title: " + $scope.toSubmitTitle);
+    console.log("TitleEN: " + $scope.toSubmitTitleEN);
+    console.log("Start: " + $scope.toSubmitStart);
+    console.log("End: " + $scope.toSubmitEnd);
+    $scope.isoStart = $scope.toSubmitStart.toISOString();
+    $scope.isoEnd = $scope.toSubmitEnd.toISOString();
+    console.log("isoStart: " + $scope.isoStart);
+    console.log("isoEnd: " + $scope.isoEnd);
+
+    $http.post(SERVER_URL + 'evaluations', 
+      {
+        TemplateID: $scope.toSubmitID,
+        StartDate: $scope.isoStart,
+        EndDate: $scope.isoEnd
+      })
+    .success(function (data, status, headers, config) {
+      console.log("SUCCESS");
+    })
+    .error(function (data, status, headers, config) {
+      console.log("ERROR");
+      $scope.errorMessage = 'Notice! ID, start date and end date must be filled';
+    });
+
   };
-
-  // // $scope.getTemp = function()
-  // $http.get("http://dispatch.ru.is/h37/api/v1/evaluationtemplates")
-  //   .success (function(response) {
-  //     $scope.allTemplates = response;
-
-  //     console.log("allTemplates:");
-  //     console.log($scope.allTemplates);
-
-  //     $scope.tempTitles = [];
-
-  //     console.log("titles:");
-
-  //     console.log(response[0].Title);
-  //     // for (var i = 0; i < response.size(); i++) {
-  //     //   //$scope.tempTitles.push(i.Title);
-  //     //   console.log(response[i].Title);
-  //     // }
-
-  //   });
 
 
 });
