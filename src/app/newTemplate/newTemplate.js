@@ -180,10 +180,10 @@ evalApp.controller( 'newTemplateCtrl', function newTemplateCtrl( $scope, $http, 
       console.log("SUCCESS");
     })
     .error(function (data, status, headers, config) {
-      $scope.errorMessage = ' Notice! Nafn, Title, Inngangur and intro fields 
-                              must be filled. Inngangur and Intro can not 
-                              exceed 100 letters. The template must also 
-                              include at least 1 question. \n';
+      $scope.errorMessage = ' Notice! Nafn, Title, Inngangur and intro fields' +
+                            'must be filled. Inngangur and Intro can not ' +
+                            'exceed 100 letters. The template must also ' +
+                            'include at least 1 question.';
     });
   };
 });
