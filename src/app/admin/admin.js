@@ -108,6 +108,7 @@ evalApp.controller( 'AdminCtrl', function AdminCtrl( $scope, $http, SERVER_URL, 
       })
     .success(function (data, status, headers, config) {
       console.log("SUCCESS");
+      toastr.succsess("Evaluation has been submitted");
     })
     .error(function (data, status, headers, config) {
       console.log("ERROR");

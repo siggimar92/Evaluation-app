@@ -178,6 +178,7 @@ evalApp.controller( 'newTemplateCtrl', function newTemplateCtrl( $scope, $http, 
       })
     .success(function (data, status, headers, config) {
       console.log("SUCCESS");
+      toastr.success("Template has succsessfully been created");
     })
     .error(function (data, status, headers, config) {
       $scope.errorMessage = ' Notice! Nafn, Title, Inngangur and intro fields' +
