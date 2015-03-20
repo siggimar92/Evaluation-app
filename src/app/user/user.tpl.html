@@ -1,10 +1,36 @@
 <div class="container jumbotron">
-<!-- 	<div class="pull-left col-lg-5 col-md-5 col-sm-12 col-xs-12">
+	<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+		<h3>My Courses</h3>
+		<div class="table-responsive">
+			<table class="table table-hover my-table">
+				<thead class="table-head">
+			        <tr>
+				      	<th>Course ID</th>
+				        <th>Course name</th>
+				        <th>Course name (EN)</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr ng-repeat="data in courses" class="active">
+			            <td><a href ="" ng-click="seeCourse(data)">{{data.CourseID}}</td>
+			            <td>{{data.Name}}</td>
+			            <td>{{data.NameEN}}</td>
+			        </tr>
+			    </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<!-- <div class="container jumbotron">
+
+	<div class="pull-left col-lg-5 col-md-5 col-sm-12 col-xs-12">
 		<h3>My Courses</h3>
 		<ul class="custom-list-style">
-			<li ng-repeat="data in displayCourses"> <a href="{{data.CourseID}}">{{data.Name}}</a></li>
+			<li ng-repeat="data in displayCourses"> <a href="/#/course">{{data.Name}}</a></li>
 		</ul>
-	</div> -->
+	</div>
+
 	<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
 		<h3>Evaluations</h3>
 		<div class="table-responsive">
@@ -27,11 +53,31 @@
 			    </tbody>
 			</table>
 		</div>
-
-
-<!-- 		<ul class="custom-list-style">
-			<li ng-repeat="data in displayEvals"> <a href="{{data.ID}}">{{data.TemplateTitle}}</a> ({{data.Status}})</li>
-		</ul> -->
 	</div>
-</div>
+</div> -->
 
+<!-- 
+<div class="container jumbotron">
+	<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+		<h3>My Courses</h3>
+		<div class="table-responsive">
+			<table class="table table-hover my-table">
+				<thead class="table-head">
+			      <tr>
+			        <th>Course name</th>
+			        <th>Course name(EN)</th>
+			        <th>Evaluate</th>
+			      </tr>
+			      <tbody>
+			        <tr ng-repeat="data in templates" class="active">
+			          <td>{{data.Title}</td>
+			          <td>{{data.TitleEN}}</td>
+			          <td><input type="radio" ng-click="postEval(data)" name="optradio"></td>
+			        </tr>
+			      </tbody>
+			    </thead>
+			</table>
+		</div>
+	</div>	
+</div>
+ -->

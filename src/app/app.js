@@ -8,6 +8,7 @@ var evalApp = angular.module( 'evalApp',
   'evalApp.user',
   'evalApp.newTemplate',
   'evalApp.evaluations',
+  'evalApp.course',
   'ui.router'
 ]);
 

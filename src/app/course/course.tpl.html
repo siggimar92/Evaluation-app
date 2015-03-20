@@ -1,0 +1,26 @@
+<div class="container jumbotron">
+	<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+		<h3>Evaluations</h3>
+		<h4>{{courseInfo.Name}} | {{courseInfo.NameEN}}</h4>
+		<div class="table-responsive">
+			<table class="table table-hover my-table">
+				<thead class="table-head">
+			        <tr>
+				      	<th></th>
+				        <th>Template title</th>
+				        <th>Template title (EN)</th>
+				        <th>Status</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr ng-repeat="data in displayEvals" class="active">
+			            <td>{{data.ID}}</td>
+			            <td><a href="" ng-click="doEval(data.ID)">{{data.TemplateTitle}}</a></td>
+			            <td>{{data.TemplateTitleEN}}</td>
+			            <td class="status">({{data.Status}})</td>
+			        </tr>
+			    </tbody>
+			</table>
+		</div>
+	</div>
+</div>
