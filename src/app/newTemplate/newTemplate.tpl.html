@@ -56,13 +56,19 @@
 			<h4>Add a course question</h4>
 			<input type="text" class="form-control" ng-model="cQText" placeholder="Spurning">
 			<input type="text" class="form-control" ng-model="cQTextEN" placeholder="Question">
-			<input type="text" class="form-control" ng-model="cQType" placeholder="Type">
+			<!-- <input type="text" class="form-control" ng-model="cQType" placeholder="Type"> -->
+			<select ng-model="cQType"  class="form-control placeholder">
+				<option value="" disabled selected style='display:none;'>Select question type</option>
+				<option value="single">Single value question</option>
+				<option value="multiple">Mutliple values question</option>
+				<option value="text">Text question</option>
+			</select>
 		</form>
 		<form class="input-group">
 			<h4>Add a answer for this question</h4>
 			<input type="text" class="form-control" ng-model="cAText" placeholder="Svar">
 			<input type="text" class="form-control" ng-model="cATextEN" placeholder="Answer">
-			<input type="number" class="form-control" ng-model="cAWeight" placeholder="Type">
+			<input type="number" class="form-control" ng-model="cAWeight">
 			<button class="my-button-blue" ng-click="addCAnswer()">Add answer</button>
 		</form>
 		<h5>Answers to this question</h5>
@@ -92,13 +98,19 @@
 			<h4>Add a teacher question</h4>
 			<input type="text" class="form-control" ng-model="tQText" placeholder="Spurning">
 			<input type="text" class="form-control" ng-model="tQTextEN" placeholder="Question">
-			<input type="text" class="form-control" ng-model="tQType" placeholder="Type">
+			<!-- <input type="text" class="form-control" ng-model="tQType" placeholder="Type"> -->
+			<select ng-model="tQType"  class="form-control placeholder">
+				<option value="" disabled selected style='display:none;'>Select question type</option>
+				<option value="single">Single value question</option>
+				<option value="multiple">Mutliple values question</option>
+				<option value="text">Text question</option>
+			</select>
 		</form>
 		<form class="input-group">
 			<h4>Add a answer for this question</h4>
 			<input type="text" class="form-control" ng-model="tAText" placeholder="Svar">
 			<input type="text" class="form-control" ng-model="tATextEN" placeholder="Answer">
-			<input type="number" class="form-control" ng-model="tAWeight" placeholder="Type">
+			<input type="number" class="form-control" ng-model="tAWeight">
 			<button class="my-button-blue" ng-click="addTAnswer()">Add answer</button>
 		</form>
 		<h5>Answers to this question</h5>
