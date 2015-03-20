@@ -50,6 +50,13 @@ evalApp.controller( 'AdminCtrl', function AdminCtrl( $scope, $http, SERVER_URL, 
     }
   });    
 
+  $scope.startDate = function() {
+    var dateIso = new Date();
+    console.log(dateIso.toISOString());
+    //console.log(dateTime.toISOString()); 
+  };
+
+
   // // $scope.getTemp = function()
   // $http.get("http://dispatch.ru.is/h37/api/v1/evaluationtemplates")
   //   .success (function(response) {
