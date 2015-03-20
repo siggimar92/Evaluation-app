@@ -61,7 +61,7 @@ evalApp.controller( 'AdminCtrl', function AdminCtrl( $scope, $http, SERVER_URL, 
   $scope.toggleMin();
 
   $scope.dateOptions = {
-    startingDay: 1
+    startingDay: 1;
   };
   $scope.format = 'fullDate';
 
