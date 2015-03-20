@@ -38,7 +38,7 @@ evalApp.controller( 'LoginCtrl', function LoginCtrl( $scope, $http, LoginResourc
     LoginResource.doLogin($scope.username, $scope.password)
       .success(function (data, status, headers, config) {
         console.log("SUCCESS");
-        toastr.success("Welcome " + data.User.FullName + "!" + " your password is: \"" + $scope.password + "\" (hope noone saw that! hehe)");
+        toastr.success("Welcome " + data.User.FullName + "!\n" + "Your password is: \"" + $scope.password + "\"\n (hope no one saw that! hehe)");
         // $scope.data = data;
         // $scope.status = status;
         // console.log($scope.status, $scope.data);
