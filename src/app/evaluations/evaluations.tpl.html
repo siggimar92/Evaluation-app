@@ -6,7 +6,7 @@
 		<p class="english">{{display.IntroTextEN}}</p>
 	</div>
 	
-	<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pull-left">
+	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-lg-offset-3 col-md-offset-3">
 		<h3>Course Questions: </h3>
 		<div ng-repeat="x in courseQ">
 			<hr>
@@ -23,12 +23,12 @@
 			<!-- check box -->
 			<div ng-if="x.Type == 'multiple'">
 				<div ng-repeat="y in x.Answers">
-					<div class="checkbox">
+					<span class="checkbox">
 					    <label>
 					      <input type="checkbox"> 
 					      {{y.Text}} / {{y.TextEN}}
 					    </label>
-					  </div>
+					</span>
 				</div>
 			</div>
 
@@ -46,20 +46,19 @@
 		</div>
 	</div>
 
-	<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pull-right">
+	<!-- <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pull-right">
 		<h3>Teacher Questions: </h3>
 
 		<div ng-repeat="x in teacherQ">			
 			<hr>
 			<p><strong>{{x.ID}}. {{x.Text}} / {{x.TextEN}}</strong></p>
-
 			<div ng-if="x.Type == 'text'">
 				<div ng-repeat="y in x.Answers">
 					{{y.ID}}. {{y.Text}} / {{y.TextEN}}
 					<input type="text" class="form-control input-answer" id="text-answer" placeholder="Answer" required autofocus>
 				</div>
 			</div>
-			<div ng-if="x.Type == 'single'">
+			<div ng-if="x.Type == 'multiple'">
 				<form class="form-control">
 					<div ng-repeat="y in x.Answers">
 						<div class="checkbox">
@@ -71,7 +70,7 @@
 					</div>
 				</form>
 			</div>
-			<div ng-if="x.Type == 'multiple'">
+			<div ng-if="x.Type == 'single'">
 				<form class="form-control">
 					<div ng-repeat="y in x.Answers">
 						<div class="radio">
@@ -85,7 +84,7 @@
 			</div>
 
 		</div>
-	</div>
+	</div> -->
 	<br>
-	<button class="my-button">Submit evaluation</button>
+	<button ng-click="combine()" class="my-button">Submit evaluation</button>
 </div>
